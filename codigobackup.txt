@@ -1,0 +1,13 @@
+program Ejemplo; 
+
+var
+mati: array[2,2];
+matute: array [2,2];
+begin 
+
+mati=[[1.0,2.0],[3.0,4.0]];
+matute=[[5.0,6.0],[7.0,8.0]];
+wrt(2.0**mati);
+
+end.  
+

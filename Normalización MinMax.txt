@@ -1,0 +1,8 @@
+program Normalizador
+var
+dos:array[2.0,2.0]
+tres:array[3.0,3.0]
+cuatro:array[4.0,4.0]
+cinco:array[5.0,5.0]
+begin
+wrt("Programa de normalización de matrices");

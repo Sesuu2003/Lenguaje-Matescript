@@ -1,0 +1,54 @@
+
+# PASO 1
+
+pila = ["$","<Program>"]
+
+print(df.at['<Program>','program'])
+
+pila = ["$","punto","end",<body>,"begin",<VarDef>,"puntoycoma","id","program"]  
+
+program Ejemplo ; 
+
+var pepe : float ; 
+
+begin 
+
+pepe = 4.2 ;
+
+end .  
+
+# Desapilamos dentro del while, verificando los lexemas, hasta que en la pila nos encontramos con una variable 
+
+pila = ["$","punto","end",<body>,"begin",<VarDef>]  
+
+var pepe : float ; 
+
+begin 
+
+pepe = 4.2 ;
+
+end .  
+
+# Buscamos en la TAS y reemplazamos la producción
+
+print(df.at['<VarDef>','var']) = "var" "<VarDec>"
+
+pila = ["$","punto","end","<body>","begin","<VarDec>","var"]
+
+# Desapilamos y queda 
+
+pepe : float ; 
+
+begin 
+
+pepe = 4.2 ;
+
+end . 
+
+pila = ["$","punto","end","<body>","begin","<VarDec>"]
+
+# Buscamos en la TAS y reemplazamos 
+
+print(df.at['<VarDec>','id']) = "id" "dosPuntos" "<Type>" "puntoycoma" "<Variable>"
+
+pila = ["$","punto","end","<body>","begin","<Variable>","puntoycoma","<Type>","dosPuntos","id"]

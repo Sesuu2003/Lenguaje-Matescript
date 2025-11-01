@@ -1,0 +1,58 @@
+###  <Program> ::= “program” ”Id” ”;” <VarDef> “begin” <body>  “end” “.”
+
+### <VarDef> ::= “var” <VarDec> | epsilon  
+
+== ULISES ==========================================================
+
+# <VarDec> ::= “id” “:” <Type> “;” <Variable>
+### <Variable>::= <VarDec> | epsilon
+
+# <body>::= <Sent> “;” <bodyDec>
+### <bodyDec>::= <body> | epsilon
+
+#### <Sent> ::= <Assign> | <Read> | <Write> | <Cycle> | <Conditional>
+# <Assign> ::= "id" <Expresion> 
+
+# <Expresion>::=  "assignOp" <AE> | ”[“ <AE> “,” <AE> “]” "assignOp" <AE>
+
+### <Conditional> ::= “if” <Condicion> “then” <body> <CondDec> 
+### <CondDec> ::= “end” | “else” <body> “end” 
+
+### <Cycle> ::= “while”  <Condicion> “do” <body> “end”
+
+# <Condicion>::= <TermCond> <CDec>
+# <CDec>::= epsilon | “or” <Condicion>
+
+========================== VICTORIA ========================================================
+
+### <TermCond>::= <FactorCond> <TermDecCond>
+### <TermDecCond>::= epsilon | “and” <TermCond>
+### <FactorCond>::= “not” <FactorCond> | <AE> ”relOp” <AE>  | “{“ <Condicion> “}”
+### <AE> ::= <Term> <AEDec>
+### <AEDec> ::= epsilon | ”+” <AE> | ”-” <AE>  
+### <Term> ::= <Factor> <TermDec>
+### <TermDec> ::= epsilon | “*”<Term> | “/”<Term>
+### <Factor> ::= <Primary> <FactorDec> 
+### <FactorDec> ::= epsilon | “^” <Factor>
+### <Primary> ::=  “id”<ident> | "(" <AE> ")" | “const” | “traspone” ”(” ”id” “)” | “tam””(“ “id” “[” “int” “]” “)” | <matConst> | “-” <primary>     // Producciones
+### <matConst>::= “[“ <RowList> “]”
+### <RowList>::= <Row> <R> 
+
+============================ ALEXIS ========================================================================================================
+
+### <R>::=  “,” <Row> <R>| epsilon
+### <Row>::= “[“ <ColList> ”]”
+### <ColList>::= “const” <C>
+### <C>::= “,” “const” <C> | epsilon
+### <ident>::= ”[“ <ColList>“]” | epsilon
+### <Read> ::= “rd” ”(“ <STR> "id" ”)”
+### <Write> ::= “wrt” ”(“ <contwrt> “)” 
+### <contwrt> ::= <AE> <wrtDec> | “string” <wrtDec>
+### <wrtDec> ::= epsilon | “,”<contwrt>
+### <Type>::= <Arraydef> | “float”
+
+<Arraydef> ::= “array” ”[” "int" “, “ "int" “]”  
+--- No sabemos como la tendríamos que llamar/ que devuelve
+
+<STR>::= “string” “,” | epsilon 
+--- No sabemos como la tendríamos que llamar/ que devuelve
