@@ -98,7 +98,8 @@ def AnalizadorPredictivo():
 
       elif componente.data.simbologramatical in variables:
          if not pd.isna(df.at[componente.data.simbologramatical, tuplaLexica[0]]):
-               idPadre = searchNodo(idPadre, componente.tag, tree, variables)
+               #idPadre = searchNodo(idPadre, componente.tag, tree, variables)
+               idPadre = componente.identifier
                nodoCreate(pila, idNodo, idPadre, componente.data.simbologramatical,terminales, tuplaLexica,tree)
                listNodos = tree.all_nodes()
                idNodo = listNodos[-1].identifier + 1
@@ -128,6 +129,15 @@ def AnalizadorPredictivo():
                   
    #tree.show(sorting=False)   
    return  tree
+
+#with open('productoMatrices.txt', 'r', encoding='utf-8') as f:
+   #   contenido = f.read()
+
+#tokens = analizador_lexico(contenido)
+#tokens_invertido = tokens[::-1]
+
+#print(tokens_invertido)
+#tree = AnalizadorPredictivo() 
 
 ##tree = AnalizadorPredictivo()
 # print(estado)

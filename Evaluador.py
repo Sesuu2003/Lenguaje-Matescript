@@ -289,7 +289,6 @@ def opRelacionales(op1,opRel,op2):
         res = (op1.contenido <= op2.contenido)
     else:
         res = (op1.contenido >= op2.contenido)
-    print(f"DEBUG opRel: {op1.contenido} {opRel} {op2.contenido} = {res}")
     return res 
 
 # <FactorCond>::= “not” <FactorCond> | <AE> ”relOp” <AE>  | “{“ <Condicion> “}”
@@ -300,8 +299,8 @@ def vFactorCond(arbol, NodoActual, estado):
     elif hijos[0].data.lexema == "{":
         res = vCondicion(arbol,hijos[1], estado)
     else:
-        op2 = vAE(arbol,hijos[0], estado) 
-        op1 = vAE(arbol,hijos[2], estado)
+        op1 = vAE(arbol,hijos[0], estado) 
+        op2 = vAE(arbol,hijos[2], estado)
         try:
             res = opRelacionales(op1,hijos[1].data.lexema,op2)
         except ValueError:
@@ -339,14 +338,11 @@ def vCycle(arbol, NodoActual, estado):
     hijos = arbol.children(NodoActual.identifier)
     valorCondicional = vCondicion(arbol,hijos[1], estado)
     iteracion = 0
-    print(f"DEBUG vCycle: INICIO de while")
     # ✓ WHILE REAL: Repite hasta que la condición sea False
     while valorCondicional:
-        print(f"DEBUG vCycle iteracion {iteracion}: condicion={valorCondicional}")
         estado = vBody(arbol, hijos[3], estado)
         valorCondicional = vCondicion(arbol,hijos[1], estado)
         iteracion += 1
-    print(f"DEBUG vCycle: SALIENDO del while después de {iteracion} iteraciones")
     return estado
 
 #<CondDec> ::= “end” | “else” <body> “end” 
@@ -385,9 +381,6 @@ def vExpresion(arbol, NodoActual, estado, lexema):
         Fila = int(vAE(arbol,hijos[1], estado).contenido)
         Columna = int(vAE(arbol,hijos[3], estado).contenido)
         Valor = vAE(arbol,hijos[6], estado).contenido               # REVISAR C/ MATRICES
-        
-        print(f"DEBUG: lexema={lexema}, Fila={Fila}, Columna={Columna}, Valor={Valor}")
-        print(f"DEBUG: shape de matriz = {estado[lexema].contenido.shape}")
         estado[lexema].contenido[Fila,Columna] = Valor
     return estado
 
@@ -422,7 +415,6 @@ def vBodyDec(arbol,NodoActual, estado):
 #<body>::= <Sent> “;” <bodyDec>
 def vBody(arbol,NodoActual,estado):
     hijos = arbol.children(NodoActual.identifier)
-    print(f"DEBUG vBody: Ejecutando {hijos[0].tag}")
     estado = vSent(arbol,hijos[0], estado)  # Lexema del hijo 1 (Sent)
       # Lexema del hijo 3 (bodyDec)
     return vBodyDec(arbol,hijos[2], estado)
