@@ -1,0 +1,31 @@
+program Normalizador
+var
+A:array[4,3];
+B:array[4,3];
+i:float;
+j:float;
+valor:float;
+
+begin
+    wrt("Programa de normalización de matrices");
+    wrt("Empiece a ingresar los valores a cargar en su matriz de 4x3");
+    i= 1.0;
+    while i < 5.0 do
+        j= 1.0;
+        while j< 4.0 do
+            wrt("Fila: ");
+            wrt(i);
+            wrt(j);
+            rd("Ingrese el valor par la posición: ", valor);
+            A[i-1.0,j-1.0]= valor;
+            j = j+1.0;
+        end;
+        i = i+1.0;
+    wrt("Carga terminada. La Matriz ingresada es:");
+    wrt(A);
+    j = 1.0;
+    while j < 5.0 do
+        i = 1.0;
+        while 
+    wrt("La normalización minMax de la matriz es:");
+end.
