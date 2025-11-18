@@ -12,11 +12,11 @@
 <CondDec>,,,,,"""end""",,,,,,,"""else"" <body> ""end""",,,,,,,,,,,,,,,,,,,,,,,,,,,,
 <Cycle>,,,,,,,,,,,,,“while”  <Condicion> “do” <body> “end”,,,,,,,,,,,,,,,,,,,,,,,,,,,
 <AE>,,<Term> <AEDec>,,,,,,,,,,,,,,<Term> <AEDec>,,,,,,,,<Term> <AEDec>,,<Term> <AEDec>,,<Term> <AEDec>,<Term> <AEDec>,<Term> <AEDec>,,,,,,,,,,
-<AEDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,"""mas” <AE>","""menos"" <AE>",epsilon,epsilon,epsilon,epsilon,,,,,epsilon,,epsilon,,,,,,,epsilon,,,,,,
+<AEDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,"""mas” <AE>","""menos"" <AE>",epsilon,epsilon,epsilon,epsilon,,,,,epsilon,,epsilon,,,,,,,epsilon,,,,,,epsilon
 <Term>,,<Factor> <TermDec>,,,,,,,,,,,,,,<Factor> <TermDec>,,,,,,,,<Factor> <TermDec>,,<Factor> <TermDec>,,<Factor> <TermDec>,<Factor> <TermDec>,<Factor> <TermDec>,,,,,,,,,,
-<TermDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,“producto” <Term>,“barra” <Term>,,,epsilon,,epsilon,,,,,,,epsilon,,,,,,
+<TermDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,“producto” <Term>,“barra” <Term>,,,epsilon,,epsilon,,,,,,,epsilon,,,,,,epsilon
 <Factor>,,<Primary> <FactorDec>,,,,,,,,,,,,,,<Primary> <FactorDec>,,,,,,,,<Primary> <FactorDec>,,<Primary> <FactorDec>,,<Primary> <FactorDec>,<Primary> <FactorDec>,<Primary> <FactorDec>,,,,,,,,,,
-<FactorDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,"epsilon",epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,"""circunflejo"" <Factor>",,epsilon,,epsilon,,,,,,,epsilon,,,,,,
+<FactorDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,"epsilon",epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,"""circunflejo"" <Factor>",,epsilon,,epsilon,,,,,,,epsilon,,,,,,epsilon
 <Primary>,,“id” <Ident>,,,,,,,,,,,,,,"""menos"" <Primary>",,,,,,,,"""parentesisIzq"" <AE> ""parentesisDer""",,<matConst>,,"""const""",“traspone” ”parentesisIzq” ”id” “parentesisDer”,“tam” ”parentesisIzq“ “id” “corcheteIzq” “int” “corcheteDer” “parentesisDer”,,,,,,,,,,
 <Read>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"“rd” ""parentesisIzq“ <STR> ""id"" ”parentesisDer”",,,,,,,,,
 <Write>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"“wrt” ""parentesisIzq“ <contwrt> “parentesisDer”",,,,,,,
@@ -25,10 +25,10 @@
 <Type>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<Arraydef>,"""float""",,,
 <Arraydef>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"“array” ""corcheteIzq” ""int""  “coma” ""int"" “corcheteDer”",,,,
 <Ident>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,,epsilon,"""corcheteIzq“ <AE> ""coma"" <AE> ""corcheteDer”",epsilon,,,,,,,epsilon,,,,,,
-<Condicion>,,<TermCond> <CDec>,,,,,,,,,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,<TermCond> <CDec>,<TermCond> <CDec>,<TermCond> <CDec>,,,,,,,,,,<TermCond> <CDec>
+<Condicion>,,<TermCond> <CDec>,,,,,,,,,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,<TermCond> <CDec>,<TermCond> <CDec>,<TermCond> <CDec>,,,,,,,,,<TermCond> <CDec>,epsilon
 <CDec>,,,,,,,,,,,epsilon,,,epsilon,,,,,“or” <Condicion>,,,,,,,,,,,,,,,,,,,,,epsilon
 <TermCond>,,<FactorCond> <TermDecCond>,,,,,,,,,,,,,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,,,,,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,<FactorCond> <TermDecCond>,<FactorCond> <TermDecCond>,,,,,,,,,<FactorCond> <TermDecCond>,
-<TermDecCond>,,,,,,,,,,,epsilon,,,epsilon,,,,,epsilon,“and” <TermCond>,,,,,,,,,,,,,,,,,,,,
+<TermDecCond>,,,,,,,,,,,epsilon,,,epsilon,,,,,epsilon,“and” <TermCond>,,,,,,,,,,,,,,,,,,,,epsilon
 <FactorCond>,,<AE> ”relOp” <AE>,,,,,,,,,,,,,,"<AE> ""relOp"" <AE>  ",,“not” <FactorCond>,,,,,,<AE> ”relOp” <AE>  ,,<AE> ”relOp” <AE>  ,,<AE> ”relOp” <AE>  ,<AE> ”relOp” <AE>  ,<AE> ”relOp” <AE>  ,,,,,,,,,"""llaveIzq"" <Condicion> “llaveDer”",
 <matConst>,,,,,,,,,,,,,,,,,,,,,,,,,,"“corcheteIzq"" <RowList> “corcheteDer”",,,,,,,,,,,,,,
 <RowList>,,,,,,,,,,,,,,,,,,,,,,,,,,<Row> <R>,,,,,,,,,,,,,,

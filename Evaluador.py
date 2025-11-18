@@ -154,7 +154,7 @@ def vPrimary(arbol, NodoActual, estado):
     elif hijos[0].data.simbologramatical == "traspone":
         id = hijos[2].data.lexema  # Lexema del hijo 2 (id)
         valor = estado[id].contenido
-        operador =  ("array",valor.T) # LLAMAR A FUNCIÓN TRASPONE
+        operador =  valorEstado("array",valor.T) # LLAMAR A FUNCIÓN TRASPONE
         
     elif hijos[0].data.simbologramatical == "tam":
         id = hijos[2].data.lexema  # Lexema del hijo 2 (id)

@@ -17,7 +17,7 @@ class DatosNodo(object):
 def Inicializar():
    
    tree = Tree()
-   with open('Normalización MinMax.txt', 'r', encoding='utf-8') as f:
+   with open('Ejercicio Extra.txt', 'r', encoding='utf-8') as f:
       contenido = f.read()
 
    tokens = analizador_lexico(contenido)
