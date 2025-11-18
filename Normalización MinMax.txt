@@ -40,9 +40,15 @@ begin
             i = i + 1.0;
         end;
         wrt("Terminada deteccion de minmax");
+        wrt("Este es Min", min);
+        wrt("Este es Max", max);
         i = 1.0;
-        while i < 5.0 do
+        while i < 5.0 and (max - min) <> 0.0 do
             A[i-1.0,j-1.0] = (A[i-1.0,j-1.0] - min)/(max - min);
+            i = i + 1.0;
+        end;
+        while i < 5.0 and (max - min) == 0.0 do
+            A[i-1.0,j-1.0] = 0.0;
             i = i + 1.0;
         end;
         j = j + 1.0;

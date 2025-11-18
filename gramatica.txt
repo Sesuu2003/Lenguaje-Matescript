@@ -44,7 +44,7 @@
 ### <Row>::= “[“ <ColList> ”]”
 ### <ColList>::= “const” <C>
 ### <C>::= “,” “const” <C> | epsilon
-### <ident>::= ”[“ <ColList>“]” | epsilon
+### <ident>::= ”[“ <AE> "," <AE> “]” | epsilon
 ### <Read> ::= “rd” ”(“ <STR> "id" ”)”
 ### <Write> ::= “wrt” ”(“ <contwrt> “)” 
 ### <contwrt> ::= <AE> <wrtDec> | “string” <wrtDec>

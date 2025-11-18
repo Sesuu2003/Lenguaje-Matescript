@@ -14,7 +14,7 @@
 <AE>,,<Term> <AEDec>,,,,,,,,,,,,,,<Term> <AEDec>,,,,,,,,<Term> <AEDec>,,<Term> <AEDec>,,<Term> <AEDec>,<Term> <AEDec>,<Term> <AEDec>,,,,,,,,,,
 <AEDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,"""mas” <AE>","""menos"" <AE>",epsilon,epsilon,epsilon,epsilon,,,,,epsilon,,epsilon,,,,,,,epsilon,,,,,,
 <Term>,,<Factor> <TermDec>,,,,,,,,,,,,,,<Factor> <TermDec>,,,,,,,,<Factor> <TermDec>,,<Factor> <TermDec>,,<Factor> <TermDec>,<Factor> <TermDec>,<Factor> <TermDec>,,,,,,,,,,
-<TermDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,“producto” <Term>,“producto” <Term>,,,epsilon,,epsilon,,,,,,,epsilon,,,,,,
+<TermDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,“producto” <Term>,“barra” <Term>,,,epsilon,,epsilon,,,,,,,epsilon,,,,,,
 <Factor>,,<Primary> <FactorDec>,,,,,,,,,,,,,,<Primary> <FactorDec>,,,,,,,,<Primary> <FactorDec>,,<Primary> <FactorDec>,,<Primary> <FactorDec>,<Primary> <FactorDec>,<Primary> <FactorDec>,,,,,,,,,,
 <FactorDec>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,"epsilon",epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,"""circunflejo"" <Factor>",,epsilon,,epsilon,,,,,,,epsilon,,,,,,
 <Primary>,,“id” <Ident>,,,,,,,,,,,,,,"""menos"" <Primary>",,,,,,,,"""parentesisIzq"" <AE> ""parentesisDer""",,<matConst>,,"""const""",“traspone” ”parentesisIzq” ”id” “parentesisDer”,“tam” ”parentesisIzq“ “id” “corcheteIzq” “int” “corcheteDer” “parentesisDer”,,,,,,,,,,
@@ -24,7 +24,7 @@
 <wrtDec>,,,,,,,,,,,,,,,,,,,,,,,,,epsilon,,,,,,,,,"""coma"" <contwrt>",,,,,,
 <Type>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<Arraydef>,"""float""",,,
 <Arraydef>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"“array” ""corcheteIzq” ""int""  “coma” ""int"" “corcheteDer”",,,,
-<Ident>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,,epsilon,"""corcheteIzq“ <ColList> ""corcheteDer”",epsilon,,,,,,,epsilon,,,,,,
+<Ident>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,,epsilon,"""corcheteIzq“ <AE> ""coma"" <AE> ""corcheteDer”",epsilon,,,,,,,epsilon,,,,,,
 <Condicion>,,<TermCond> <CDec>,,,,,,,,,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,<TermCond> <CDec>,<TermCond> <CDec>,<TermCond> <CDec>,,,,,,,,,,<TermCond> <CDec>
 <CDec>,,,,,,,,,,,epsilon,,,epsilon,,,,,“or” <Condicion>,,,,,,,,,,,,,,,,,,,,,epsilon
 <TermCond>,,<FactorCond> <TermDecCond>,,,,,,,,,,,,,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,,,,,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,<FactorCond> <TermDecCond>,<FactorCond> <TermDecCond>,,,,,,,,,<FactorCond> <TermDecCond>,

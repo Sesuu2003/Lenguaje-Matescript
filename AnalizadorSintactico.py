@@ -137,7 +137,7 @@ def AnalizadorPredictivo():
 #tokens_invertido = tokens[::-1]
 
 #print(tokens_invertido)
-#tree = AnalizadorPredictivo() 
+tree = AnalizadorPredictivo() 
 
 ##tree = AnalizadorPredictivo()
 # print(estado)

@@ -47,14 +47,15 @@ def vR(arbol, NodoActual, listaValores):
     else:
         return listaValores
 
-# <ident>::= ”[“ <ColList>“]” | epsilon
+# <ident>::= ”[“ <AE> "," <AE>“]” | epsilon
 def vIdent(arbol, NodoActual, estado,lexema):
     hijos = arbol.children(NodoActual.identifier)
     if hijos:
-        listaValores = []
-        subIndices = vColList(arbol, hijos[1],listaValores)
-        valor = estado[lexema].contenido[subIndices[0],subIndices[1]]
-        operador = valorEstado("float",valor)
+        # Ahora usamos <AE> en lugar de <ColList>
+        fila = int(vAE(arbol, hijos[1], estado).contenido)
+        columna = int(vAE(arbol, hijos[3], estado).contenido)
+        valor = estado[lexema].contenido[fila, columna]
+        operador = valorEstado("float", valor)
         return operador 
     else:
         operador = valorEstado(estado[lexema].tipo, estado[lexema].contenido)
@@ -279,7 +280,7 @@ def vAE(arbol,NodoActual,estado):
 def opRelacionales(op1,opRel,op2):
     if opRel == '==':
         res = (op1.contenido == op2.contenido)
-    elif opRel == '!=':
+    elif opRel == '<>':
         res = (op1.contenido != op2.contenido)
     elif opRel == '<':
         res = (op1.contenido < op2.contenido)
