@@ -3,7 +3,7 @@
 <VarDef>,,,“var” <VarDec>,epsilon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 <VarDec>,,“id” “dosPuntos” <Type> “puntoycoma” <Variable>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 <Variable>,,<VarDec>,,epsilon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-<body>,, <Sent> “puntoycoma” <bodyDec>,,,,,,,, <Sent> “puntoycoma” <bodyDec>,,, <Sent> “puntoycoma” <bodyDec>,,,,,,,,,,,,,,,,,, <Sent> “puntoycoma” <bodyDec>,, <Sent> “puntoycoma” <bodyDec>,,,,,,,
+<body>,, <Sent> “puntoycoma” <bodyDec>,,,epsilon,,,,, <Sent> “puntoycoma” <bodyDec>,,, <Sent> “puntoycoma” <bodyDec>,,,,,,,,,,,,,,,,,, <Sent> “puntoycoma” <bodyDec>,, <Sent> “puntoycoma” <bodyDec>,,,,,,,
 <bodyDec>,,<body>,,,epsilon,,,,,<body>,,epsilon,<body>,,,,,,,,,,,,,,,,,,<body>,,<body>,,,,,,,
 <Sent>,,<Assign>,,,,,,,,<Conditional>,,,<Cycle>,,,,,,,,,,,,,,,,,,<Read>,,<Write>,,,,,,,
 <Assign>,,"""id"" <expresion>",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -24,7 +24,7 @@
 <wrtDec>,,,,,,,,,,,,,,,,,,,,,,,,,epsilon,,,,,,,,,"""coma"" <contwrt>",,,,,,
 <Type>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,<Arraydef>,"""float""",,,
 <Arraydef>,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"“array” ""corcheteIzq” ""int""  “coma” ""int"" “corcheteDer”",,,,
-<Ident>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,,epsilon,"""corcheteIzq“ <AE> ""coma"" <AE> ""corcheteDer”",epsilon,,,,,,,epsilon,,,,,,
+<Ident>,,,,,,,epsilon,,,,epsilon,,,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,epsilon,,epsilon,"""corcheteIzq“ <AE> ""coma"" <AE> ""corcheteDer”",epsilon,,,,,,,epsilon,,,,,,epsilon
 <Condicion>,,<TermCond> <CDec>,,,,,,,,,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,,,,,<TermCond> <CDec>,,<TermCond> <CDec>,,<TermCond> <CDec>,<TermCond> <CDec>,<TermCond> <CDec>,,,,,,,,,<TermCond> <CDec>,epsilon
 <CDec>,,,,,,,,,,,epsilon,,,epsilon,,,,,“or” <Condicion>,,,,,,,,,,,,,,,,,,,,,epsilon
 <TermCond>,,<FactorCond> <TermDecCond>,,,,,,,,,,,,,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,,,,,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,,<FactorCond> <TermDecCond>,<FactorCond> <TermDecCond>,<FactorCond> <TermDecCond>,,,,,,,,,<FactorCond> <TermDecCond>,

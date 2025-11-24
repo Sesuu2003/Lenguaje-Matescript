@@ -264,6 +264,9 @@ def analizador_lexico(fuente):
             continue
 
         if c in OPERADORES_RELACIONALES:
+            if lexema and lexema not in OPERADORES_RELACIONALES:
+                tokens.append([clasificar_lexema(lexema), lexema])
+                lexema = ""
             lexema += c
             i += 1
             # Verificar si el siguiente carácter también es operador

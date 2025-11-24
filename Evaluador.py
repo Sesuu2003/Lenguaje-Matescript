@@ -101,7 +101,6 @@ def vContWrite(arbol,NodoActual,estado):
 # <Write> ::= “wrt” ”(“ <contwrt> “)” 
 def vWrite(arbol,NodoActual,estado):
     hijos = arbol.children(NodoActual.identifier)
-    contenidoWRT= ""
     contenidoWRT = vContWrite(arbol,hijos[2],estado)
     return estado
 
@@ -115,10 +114,11 @@ def vSTR(arbol, NodoActual):
 
 # <Read> ::= “rd” ”(“ <STR> "id" ”)”
 def vRead(arbol,NodoActual,estado):
-
     hijos = arbol.children(NodoActual.identifier)
     str = vSTR(arbol,hijos[2])
     valorIngresado = input(str)
+    if not valorIngresado:
+        sys.exit("Error: No se ha ingresado valor alguno.")
     id = hijos[3].data.lexema
     estado[id].contenido = float(valorIngresado)
     return estado
@@ -159,10 +159,12 @@ def vPrimary(arbol, NodoActual, estado):
     elif hijos[0].data.simbologramatical == "tam":
         id = hijos[2].data.lexema  # Lexema del hijo 2 (id)
         #np.shape[0] par columnas y [1] para filas
-        if hijos[4].data.lexema in [0,1]:
-            valor= estado[id].contenido.shape[hijos[4].data.lexema]
+        indice = int(hijos[4].data.lexema)  # Lexema del hijo 4 (int)
+        if indice in [0,1]:
+            valor= estado[id].contenido.shape[indice]
             operador = valorEstado("float",valor) # LLAMAR A FUNCIÓN TAMANIO    
         else:
+            #print(hijos[4].data.lexema)
             sys.exit("Error: Tamaño de matriz no válido")
         #TODO completar tamaño de matriz
         
@@ -189,6 +191,7 @@ def vFactorDec(arbol,NodoActual, estado, op1):
             valor = op1.contenido**op2.contenido
             res = valorEstado("array",valor)
         else:
+            valor = op1.contenido**op2.contenido
             res = valorEstado("float",valor)
     else:
         res = op1
@@ -224,6 +227,8 @@ def vTermDec(arbol,NodoActual, estado, op1):
     else: 
          op2 = vTerm(arbol,hijos[1], estado)
          if op1.tipo == "float" and op1.tipo == op2.tipo:
+                if op2.contenido == 0:
+                    sys.exit("Error: División por cero")
                 contenido = op1.contenido / op2.contenido
                 res = valorEstado("float",contenido) 
          else:
@@ -375,8 +380,12 @@ def vExpresion(arbol, NodoActual, estado, lexema):
     if hijos[0].data.simbologramatical == "assignOp":
         valorAE = vAE(arbol,hijos[1], estado)
         if valorAE.tipo == "array":
+            if estado[lexema].tipo != "array":
+                sys.exit("Error: Asignación de matriz a variable no matriz")
             estado[lexema].contenido = np.array(valorAE.contenido)
-        else:    
+        else:
+            if estado[lexema].tipo != "float":
+                sys.exit("Error: Asignación de valor float a variable no float")
             estado[lexema].contenido = valorAE.contenido
     else: #segunda producción
         Fila = int(vAE(arbol,hijos[1], estado).contenido)
@@ -413,12 +422,15 @@ def vBodyDec(arbol,NodoActual, estado):
         estado = vBody(arbol,hijos[0], estado)  # Lexema del hijo 1 (body)
     return estado
 
-#<body>::= <Sent> “;” <bodyDec>
+#<body>::= <Sent> “;” <bodyDec> | epsilon
 def vBody(arbol,NodoActual,estado):
     hijos = arbol.children(NodoActual.identifier)
-    estado = vSent(arbol,hijos[0], estado)  # Lexema del hijo 1 (Sent)
+    if not hijos:
+        return estado
+    else:
+        estado = vSent(arbol,hijos[0], estado)  # Lexema del hijo 1 (Sent)
       # Lexema del hijo 3 (bodyDec)
-    return vBodyDec(arbol,hijos[2], estado)
+        return vBodyDec(arbol,hijos[2], estado)
 
 # <Variable>::= <VarDec> | epsilon
 def vVariable(arbol,NodoActual,estado):

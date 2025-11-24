@@ -1,4 +1,4 @@
-
+import sys
 from AnalizadorLexico import analizador_lexico
 from treelib import Node, Tree
 from arbol import exportar_arbol
@@ -17,7 +17,7 @@ class DatosNodo(object):
 def Inicializar():
    
    tree = Tree()
-   with open('Ejercicio Extra.txt', 'r', encoding='utf-8') as f:
+   with open('Normalización MinMax.txt', 'r', encoding='utf-8') as f:
       contenido = f.read()
 
    tokens = analizador_lexico(contenido)
@@ -89,9 +89,9 @@ def AnalizadorPredictivo():
          if not tokens_invertido:
                estado = "Éxito"
                exportar_arbol(tree)
-               print(estado)
+               #print(estado)
          else:
-               print("Error: tokens sobrantes después de vaciar la pila.")
+               sys.exit("Error: tokens sobrantes después de vaciar la pila.")
                estado = "Error"
                print(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
          continue  #Salta a la próxima iteracion
@@ -105,7 +105,8 @@ def AnalizadorPredictivo():
                idNodo = listNodos[-1].identifier + 1
          else:
                estado = "Error por componente inválido 'Campo NaN'"
-               print(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
+               sys.exit("Error por componente inválido 'Campo NaN'")
+               #sys.exit(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
 
       elif componente.data.simbologramatical == 'epsilon':
          continue
@@ -113,7 +114,8 @@ def AnalizadorPredictivo():
       elif componente.data.simbologramatical in terminales:
          if not (componente.data.simbologramatical == tuplaLexica[0]):
                estado = 'Error por componente léxico inválido según la gramática'
-               print(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
+               sys.exit("Error por componente léxico inválido según la gramática")
+               #sys.exit(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
          else:
                # Asigno el lexema correcto al terminal
                componente.data.lexema = tuplaLexica[1]
@@ -123,7 +125,7 @@ def AnalizadorPredictivo():
                   tuplaLexica = tokens_invertido.pop()
 
       else:
-         print(componente.data.simbologramatical, 'Componente ERRÁTICO', componente.data.lexema, 'Lo que hay en la pila', tuplaLexica[0])
+         sys.exit(componente.data.simbologramatical, 'Componente ERRÁTICO', componente.data.lexema, 'Lo que hay en la pila', tuplaLexica[0])
          estado = "Error"
          print(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
                   
