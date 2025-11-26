@@ -17,7 +17,7 @@ class DatosNodo(object):
 def Inicializar():
    
    tree = Tree()
-   with open('Normalización MinMax.txt', 'r', encoding='utf-8') as f:
+   with open('MatrizPresentacion.txt', 'r', encoding='utf-8') as f:
       contenido = f.read()
 
    tokens = analizador_lexico(contenido)
@@ -105,16 +105,17 @@ def AnalizadorPredictivo():
                idNodo = listNodos[-1].identifier + 1
          else:
                estado = "Error por componente inválido 'Campo NaN'"
-               sys.exit("Error por componente inválido 'Campo NaN'")
-               #sys.exit(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
-
+               print(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
+               sys.exit("")
       elif componente.data.simbologramatical == 'epsilon':
          continue
 
       elif componente.data.simbologramatical in terminales:
          if not (componente.data.simbologramatical == tuplaLexica[0]):
                estado = 'Error por componente léxico inválido según la gramática'
-               sys.exit("Error por componente léxico inválido según la gramática")
+               #sys.exit("Error por componente léxico inválido según la gramática")
+               print(estado,' ',componente.data.simbologramatical, ' ', tuplaLexica[0])
+               sys.exit('')
                #sys.exit(estado,'  ',componente.data.simbologramatical,' ',tuplaLexica[0])
          else:
                # Asigno el lexema correcto al terminal

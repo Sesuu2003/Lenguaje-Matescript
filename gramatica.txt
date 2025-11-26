@@ -43,7 +43,7 @@
 ### <R>::=  “,” <Row> <R>| epsilon
 ### <Row>::= “[“ <ColList> ”]”
 ### <ColList>::= “const” <C>
-### <C>::= “,” “const” <C> | epsilon
+### <C>::= “,” “const” <C> | epsilon 
 ### <ident>::= ”[“ <AE> "," <AE> “]” | epsilon
 ### <Read> ::= “rd” ”(“ <STR> "id" ”)”
 ### <Write> ::= “wrt” ”(“ <contwrt> “)” 

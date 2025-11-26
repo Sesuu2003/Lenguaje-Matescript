@@ -1,3 +1,8 @@
 program Vacio;
+var 
+M:array[2,2];
 begin
+
+M = [[1.0,2.0] , [3.0,4.0]];
+wrt(M);
 end.
